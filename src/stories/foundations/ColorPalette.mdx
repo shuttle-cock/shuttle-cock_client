@@ -1,0 +1,81 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+import { colors } from '../../styles/themes';
+
+<Meta title="Foundation/ColorPalette" />
+
+# Color Palette
+
+<br />
+
+## Primary Colors
+
+<ColorPalette>
+	<ColorItem
+		title="Primary Colors"
+		subtitle="Primary color palette"
+		colors={Object.fromEntries(Object.entries(colors.primary))}
+	/>
+</ColorPalette>
+
+<br />
+
+## Secondary Colors
+
+<ColorPalette>
+	<ColorItem
+		title="Secondary Colors"
+		subtitle="Secondary color palette"
+		colors={Object.fromEntries(Object.entries(colors.secondary))}
+	/>
+</ColorPalette>
+
+<br />
+
+## Feedback Colors
+
+### Red
+
+<ColorPalette>
+	<ColorItem
+		title="Feedback Colors - Red"
+		subtitle="Feedback red color palette"
+		colors={Object.fromEntries(Object.entries(colors.feedback).filter(([key, value]) => key.startsWith('LR')))}
+	/>
+</ColorPalette>
+
+### Yellow
+
+<ColorPalette>
+	<ColorItem
+		title="Feedback Colors - Yellow"
+		subtitle="Feedback yellow color palette"
+		colors={Object.fromEntries(Object.entries(colors.feedback).filter(([key, value]) => key.startsWith('LY')))}
+	/>
+</ColorPalette>
+
+### Green
+
+<ColorPalette>
+	<ColorItem
+		title="Feedback Colors - Green"
+		subtitle="Feedback green color palette"
+		colors={Object.fromEntries(Object.entries(colors.feedback).filter(([key, value]) => key.startsWith('LG')))}
+	/>
+</ColorPalette>
+
+<br />
+
+## Grayscale Colors
+
+<ColorPalette>
+	<ColorItem
+		title="Grayscale Colors"
+		subtitle="Grayscale color palette"
+		colors={Object.fromEntries(Object.entries(colors.grayscale).filter(([key, value]) => key.startsWith('G')))}
+	/>
+	<ColorItem
+		title="Grayscale Colors"
+		subtitle="Black And White"
+		colors={Object.fromEntries(Object.entries(colors.grayscale).filter(([key, value]) => !key.startsWith('G')))}
+	/>
+</ColorPalette>

@@ -1,0 +1,55 @@
+import { Meta, Typeset } from '@storybook/blocks';
+import { typography } from '../../styles/themes';
+
+<Meta title="Foundation/Typography" />
+
+export const fontSizes = [
+	Number(typography.fontSize.xxxl.replace('px', '')),
+	Number(typography.fontSize.xxl.replace('px', '')),
+	Number(typography.fontSize.xl.replace('px', '')),
+	Number(typography.fontSize.l.replace('px', '')),
+	Number(typography.fontSize.m.replace('px', '')),
+	Number(typography.fontSize.r.replace('px', '')),
+	Number(typography.fontSize.s.replace('px', '')),
+	Number(typography.fontSize.xs.replace('px', ''))
+];
+
+export const sampleText = '프리탠다드';
+
+# Typography
+
+- **Font:** Pretendard Variable
+- **Weights:** 400(regular), 500(medium), 700(bold)
+
+<br />
+
+### Weight: 400(regular)
+
+<Typeset
+	fontSizes={fontSizes}
+	fontWeight={typography.fontWeight.regular}
+	sampleText={sampleText}
+	fontFamily={typography.fontFamily}
+/>
+
+<br />
+
+### Weight: 500(medium)
+
+<Typeset
+	fontSizes={fontSizes}
+	fontWeight={typography.fontWeight.medium}
+	sampleText={sampleText}
+	fontFamily={typography.fontFamily}
+/>
+
+<br />
+
+### Weight: 700(bold)
+
+<Typeset
+	fontSizes={fontSizes}
+	fontWeight={typography.fontWeight.bold}
+	sampleText={sampleText}
+	fontFamily={typography.fontFamily}
+/>
