@@ -9,7 +9,7 @@ import PretendardLightWOFF2 from '../assets/fonts/Pretendard-Light.woff2';
 import PretendardRegularTTF from '../assets/fonts/Pretendard-Regular.ttf';
 import PretendardRegularWOFF from '../assets/fonts/Pretendard-Regular.woff';
 import PretendardRegularWOFF2 from '../assets/fonts/Pretendard-Regular.woff2';
-import { fontFamilyList } from './themes/typography';
+import { fontFamilyList } from './themes';
 
 type Font = {
 	name: string;

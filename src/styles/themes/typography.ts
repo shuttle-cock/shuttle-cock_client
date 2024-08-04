@@ -18,7 +18,7 @@ export const fontFamilyList = [
 
 export const typography = {
 	fontFamily: fontFamilyList.join(', '),
-	fontweight: {
+	fontWeight: {
 		regular: '400',
 		medium: '500',
 		bold: '700'
