@@ -1,7 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { RouterProvider, createBrowserRouter, type RouteObject } from 'react-router-dom';
 
-import { PostLoginLayout, PreLoginLayout } from './components/layouts';
+import { PostLoginLayout, PreLoginLayout } from './components/layout';
 
 const Login = lazy(() => import('./pages/Login'));
 const ShuttleBus = lazy(() => import('./pages/ShuttleBus'));
