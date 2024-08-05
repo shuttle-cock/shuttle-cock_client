@@ -1,11 +1,11 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, PropsWithChildren } from 'react';
+import { ComponentProps } from 'react';
 import { buttonVariants } from './Button.css';
 
-type ButtonElementProps = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+type ElementProps = ComponentProps<'button'>;
 type CSSProps = NonNullable<Parameters<typeof buttonVariants>[0]>;
-type CombinedProps<T = unknown> = ButtonElementProps & CSSProps & PropsWithChildren<T>;
+type CombinedProps<T = unknown> = ElementProps & CSSProps & T;
 
-type ButtonProps = CombinedProps;
+type ButtonProps = CombinedProps<{}>;
 
 export default function Button({
 	color = 'primary',
