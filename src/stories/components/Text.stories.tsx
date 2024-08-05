@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Text } from '../../components/common';
+import { COLORS } from '../constants';
 
 const meta: Meta<typeof Text> = {
 	title: 'Components/Text',
@@ -7,22 +9,7 @@ const meta: Meta<typeof Text> = {
 	argTypes: {
 		color: {
 			control: 'select',
-			options: [
-				'grayscale.G25',
-				'grayscale.G50',
-				'grayscale.G75',
-				'grayscale.G100',
-				'grayscale.G200',
-				'grayscale.G300',
-				'grayscale.G400',
-				'grayscale.G500',
-				'grayscale.G600',
-				'grayscale.G700',
-				'grayscale.G800',
-				'grayscale.G900',
-				'grayscale.W',
-				'grayscale.B'
-			]
+			options: COLORS
 		},
 		size: {
 			control: 'select',

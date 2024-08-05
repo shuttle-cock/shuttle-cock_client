@@ -1,9 +1,9 @@
-import { createElement, DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from 'react';
+import { ComponentProps, createElement } from 'react';
 import { textVariants } from './Text.css';
 
-type TextElementProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
+type ElementProps = ComponentProps<keyof JSX.IntrinsicElements>;
 type CSSProps = NonNullable<Parameters<typeof textVariants>[0]>;
-type CombinedProps<T = unknown> = TextElementProps & CSSProps & PropsWithChildren<T>;
+type CombinedProps<T = unknown> = ElementProps & CSSProps & T;
 
 type TextProps = CombinedProps<{
 	tag?: keyof JSX.IntrinsicElements;
