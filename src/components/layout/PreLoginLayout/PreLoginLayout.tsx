@@ -1,11 +1,11 @@
 import { Outlet, useNavigate } from 'react-router-dom';
-import { RouterPath } from '../../../Router';
+import { APP_ROUTES } from '../../../constants/router';
 
 export default function PreLoginLayout() {
 	const navigate = useNavigate();
 
 	const handleLoginTest = () => {
-		navigate(RouterPath.SHUTTLE_BUS, { replace: true });
+		navigate(APP_ROUTES.SHUTTLE_BUS, { replace: true });
 	};
 
 	return (

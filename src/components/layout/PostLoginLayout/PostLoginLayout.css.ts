@@ -1,5 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
-export const container = style({});
-
-export const tab = style({});
+export const container = style({
+	width: '100%',
+	height: '100%',
+	position: 'relative'
+});

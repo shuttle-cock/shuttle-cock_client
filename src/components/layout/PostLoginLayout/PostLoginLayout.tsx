@@ -1,28 +1,25 @@
-import { Outlet, Link, useNavigate } from 'react-router-dom';
-import { RouterPath } from '../../../Router';
+import { Outlet, useNavigate } from 'react-router-dom';
+
+import { APP_ROUTES } from '../../../constants/router';
+import TabMenus from '../TabMenus';
+import * as styles from './PostLoginLayout.css';
 
 export default function PostLoginLayout() {
 	const navigate = useNavigate();
 
 	const handleLogoutTest = () => {
-		navigate(RouterPath.ROOT, { replace: true });
+		navigate(APP_ROUTES.ROOT, { replace: true });
 	};
 
 	return (
-		<div>
+		<div className={styles.container}>
 			<h2>PostLoginLayout</h2>
 			<br />
 			<div onClick={handleLogoutTest}>Logout</div>
 			<br />
 			<Outlet />
 			<br />
-			<div>
-				<Link to={RouterPath.SHUTTLE_BUS}>SHUTTLE_BUS</Link>
-				&nbsp; | &nbsp;
-				<Link to={RouterPath.VILLAGE_BUS}>VILLAGE_BUS</Link>
-				&nbsp; | &nbsp;
-				<Link to={RouterPath.COMMUNITY}>COMMUNITY</Link>
-			</div>
+			<TabMenus />
 		</div>
 	);
 }
