@@ -1,6 +1,18 @@
-# 🚌 ShuttleCock
+<a name="readme-top"></a>
 
-> 사내 셔틀버스 위치 정보 확인 서비스
+<div align="middle">
+
+<p align="center">
+  <img src="/public/logo.png" alt="shuttle cock logo" />
+</p>
+
+<h1>셔틀콕 - ShuttleCock</h1>
+
+사내 셔틀버스 위치 정보 확인 서비스
+
+![License](https://img.shields.io/badge/license-MIT-blue)
+
+</div>
 
 <br />
 
@@ -12,7 +24,9 @@
 - 사용자 데이터 연동
 - 게시판
 
-<br />
+<p align="right">
+  <a href="#readme-top">맨 위로</a>
+</p>
 
 ## 🚀 Getting Started
 
@@ -68,7 +82,9 @@ pnpm install
 pnpm dev
 ```
 
-<br />
+<p align="right">
+  <a href="#readme-top">맨 위로</a>
+</p>
 
 ## 🔧 Tech Stack
 
@@ -87,7 +103,9 @@ pnpm dev
 | vite            | [https://ko.vitejs.dev/guide/](https://ko.vitejs.dev/guide/)           | 프론트엔드 번들링                          |
 | zustand         | [https://zustand-demo.pmnd.rs/](https://zustand-demo.pmnd.rs/)         | 상태 관리 라이브러리                       |
 
-<br />
+<p align="right">
+  <a href="#readme-top">맨 위로</a>
+</p>
 
 ## ⚙️ Environment Variables
 
@@ -96,3 +114,7 @@ pnpm dev
 ```shell
 # .env.example 기준으로 .env 파일 생성
 ```
+
+<p align="right">
+  <a href="#readme-top">맨 위로</a>
+</p>
