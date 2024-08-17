@@ -1,8 +1,8 @@
 import { ComponentProps } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { APP_ROUTES, type AppRoutesType } from '../../../constants/router';
-import { Icon, Text } from '../../common';
+import { APP_ROUTES, type AppRoutesType } from '../../../../constants/router';
+import { Icon, Text } from '../../../common';
 import * as styles from './TabMenus.css';
 
 type TabMenu = {

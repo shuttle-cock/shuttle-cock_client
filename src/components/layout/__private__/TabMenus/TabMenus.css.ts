@@ -1,16 +1,14 @@
 import { style } from '@vanilla-extract/css';
+import { vars } from '../../../../styles/theme.css';
 
 export const tabMenu = style({
-	position: 'absolute',
-	bottom: '0',
-	left: '50%',
-	transform: 'translateX(-50%)',
 	width: '100%',
-	display: 'flex'
+	display: 'flex',
+	backgroundColor: vars.colors.grayscale.W
 });
 
 export const tabMenuItem = style({
-	width: 'calc(100% / 3)',
+	flex: 1,
 	display: 'flex',
 	flexDirection: 'column',
 	alignItems: 'center',
