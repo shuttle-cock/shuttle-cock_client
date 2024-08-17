@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import { Header, TabMenus } from '../__private__';
+import { Header, TabMenus } from '../_private';
 import * as styles from './PostLoginLayout.css';
 
 export default function PostLoginLayout() {

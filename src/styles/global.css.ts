@@ -13,16 +13,16 @@ globalStyle('body', {
 	justifyContent: 'center'
 });
 
-globalStyle('#root *', {
-	fontFamily: vars.typography.fontFamily,
-	fontSize: vars.typography.fontSize.l,
-	lineHeight: vars.typography.lineHeight.l
-});
-
 globalStyle('#root', {
 	width: 'inherit',
 	maxWidth: '440px',
 	background: vars.colors.grayscale.W
+});
+
+globalStyle('body, #root', {
+	fontFamily: vars.typography.fontFamily,
+	fontSize: vars.typography.fontSize.l,
+	lineHeight: vars.typography.lineHeight.l
 });
 
 globalStyle('a', {
