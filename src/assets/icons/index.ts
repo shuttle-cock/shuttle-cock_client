@@ -9,6 +9,7 @@ export { default as comment_m } from './comment-m.svg?react';
 export { default as comment_s } from './comment-s.svg?react';
 export { default as community_m } from './community-m.svg?react';
 export { default as lock_s } from './lock-s.svg?react';
+export { default as more_l } from './more-l.svg?react';
 export { default as reply_m } from './reply-m.svg?react';
 export { default as search_l } from './search-l.svg?react';
 export { default as search_m } from './search-m.svg?react';
