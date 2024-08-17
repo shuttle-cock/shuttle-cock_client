@@ -22,8 +22,7 @@ globalStyle('#root *', {
 globalStyle('#root', {
 	width: 'inherit',
 	maxWidth: '440px',
-	background: vars.colors.grayscale.W,
-	overflowY: 'auto'
+	background: vars.colors.grayscale.W
 });
 
 globalStyle('a', {
