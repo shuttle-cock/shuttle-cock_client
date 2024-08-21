@@ -60,9 +60,11 @@ export default function ShuttleBus() {
 				style={{ width: '100%', height: '100%' }}
 				zoomControl={false}
 				minZoom={15}
+				attributionControl={false}
 			>
 				<TileLayer
-					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+					opacity={0.7}
+					// attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				/>
 
