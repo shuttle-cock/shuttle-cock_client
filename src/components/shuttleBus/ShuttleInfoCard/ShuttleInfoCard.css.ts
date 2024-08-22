@@ -62,7 +62,7 @@ export const chip = style({
 });
 
 export const title = style({
-	width: '101px',
+	// width: '101px',
 	height: '32px',
 	color: vars.colors.primary.B400,
 	fontFamily: vars.typography.fontFamily[0],
