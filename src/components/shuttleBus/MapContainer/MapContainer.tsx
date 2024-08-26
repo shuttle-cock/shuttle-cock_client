@@ -1,11 +1,17 @@
-import { useState } from 'react';
-import { MapContainer, Marker, Polyline, Popup, TileLayer, useMapEvents } from 'react-leaflet';
-import { type LatLngExpression, Icon } from 'leaflet';
+import { useEffect, useState } from 'react';
+import { MapContainer, Marker, Polyline, TileLayer, useMap, useMapEvents } from 'react-leaflet';
+import { type LatLngExpression, Icon, LatLngTuple } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import * as styles from './MapContainer.css';
 
-const stationPosition: LatLngExpression = [37.55498, 127.15437];
-const arrivalPosition: LatLngExpression = [37.56605, 127.16108];
-const polylinePositions: LatLngExpression[] = [
+interface IShuttleBusProps {
+	updatePosition: LatLngTuple;
+	isError: boolean;
+}
+
+const stationPosition: LatLngTuple = [37.55498, 127.15437];
+const arrivalPosition: LatLngTuple = [37.56605, 127.16108];
+const polylinePositions: LatLngTuple[] = [
 	stationPosition,
 	[37.55539, 127.15663],
 	[37.55542, 127.15659],
@@ -27,29 +33,42 @@ const polylinePositions: LatLngExpression[] = [
 	arrivalPosition
 ];
 
-export default function ShuttleBus() {
-	const LocationMarker = () => {
-		const [position, setPosition] = useState<LatLngExpression>(arrivalPosition);
-		const map = useMapEvents({
-			click() {
-				map.locate();
-			},
-			locationfound(e) {
-				setPosition(e.latlng);
-				map.flyTo(e.latlng, map.getZoom());
-			}
-		});
+const UpdateMapView = ({ position }: { position: LatLngTuple }) => {
+	const map = useMap();
+	map.setView(position, map.getZoom());
+	return null;
+};
 
-		return position === null ? null : (
-			<Marker position={position!}>
-				<Popup>You are here</Popup>
-			</Marker>
-		);
-	};
+const LocationMarker = ({ whenLocated }: { whenLocated: () => void }) => {
+	const [position, setPosition] = useState<LatLngExpression | null>(null);
+	const map = useMapEvents({
+		click() {
+			map.locate();
+		},
+		locationfound(e) {
+			setPosition(e.latlng);
+			map.flyTo(e.latlng, map.getZoom());
+			whenLocated();
+		}
+	});
+
+	return position === null ? null : <Marker position={position!} />;
+};
+
+export default function ShuttleBus({ updatePosition, isError }: IShuttleBusProps) {
+	const [position, setPosition] = useState<LatLngTuple>(arrivalPosition);
+	const [, setShowUserLocation] = useState(false);
+
+	useEffect(() => {
+		const [lan, long] = updatePosition;
+		if (lan && long) {
+			setPosition(updatePosition);
+		}
+	}, [updatePosition]);
 
 	return (
 		<MapContainer
-			center={arrivalPosition}
+			center={position}
 			zoom={16}
 			scrollWheelZoom
 			style={{ width: '100%', height: '100%' }}
@@ -57,22 +76,18 @@ export default function ShuttleBus() {
 			minZoom={15}
 			attributionControl={false}
 		>
-			<TileLayer
-				opacity={0.7}
-				// attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-			/>
+			<TileLayer opacity={0.7} url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
 			<Marker
-				position={arrivalPosition}
-				icon={new Icon({ iconUrl: 'src/assets/icons/bus-marker-l.svg' })}
+				position={position}
+				icon={new Icon({ iconUrl: 'src/assets/icons/bus-marker-l.svg', className: styles.bus })}
 				alt="bus-marker-icon"
-			>
-				<Popup>A pretty CSS3 popup.</Popup>
-			</Marker>
+			/>
 
-			{/* <LocationMarker /> */}
 			<Polyline positions={polylinePositions} color="#3A65FF" weight={8} />
+
+			<LocationMarker whenLocated={() => setShowUserLocation(true)} />
+			<UpdateMapView position={position} />
 		</MapContainer>
 	);
 }
