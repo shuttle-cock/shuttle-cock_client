@@ -1,14 +1,20 @@
 import MapContainer from '../../components/shuttleBus/MapContainer/MapContainer';
-import 'leaflet/dist/leaflet.css';
 import ShuttleInfoCard from '../../components/shuttleBus/ShuttleInfoCard/ShuttleInfoCard';
-import * as styles from './ShuttleBus.css';
 import NotificationBar from '../../components/shuttleBus/NotificationBar/NotificationBar';
+import * as styles from './ShuttleBus.css';
+
+interface IPositionResponse {
+	Latitude: number;
+	Longitude: number;
+}
 
 export default function ShuttleBus() {
+	const data = { Latitude: 0, Longitude: 0 };
+
 	return (
 		<div className={styles.container}>
 			<NotificationBar />
-			<MapContainer />
+			<MapContainer updatePosition={[data?.Latitude || 0, data?.Longitude || 0]} isError={false} />
 			<ShuttleInfoCard />
 		</div>
 	);
