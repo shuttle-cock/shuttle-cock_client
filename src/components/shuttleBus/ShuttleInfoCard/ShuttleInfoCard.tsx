@@ -1,52 +1,48 @@
 import { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import Icon from '../../common/Icon';
+import {
+	type ITime,
+	type TimeType,
+	TIME_PERIOD,
+	TIME_TABLE,
+	DIRECTION,
+	TIME_LABELS
+} from '../../../constants/schedule';
 import * as styles from './ShuttleInfoCard.css';
 
-interface ITime {
-	h: number;
-	m: number;
-}
-type TimePeriodType = 'AM' | 'PM';
-type ITimeTable = {
-	[key in TimePeriodType]: ITime[];
+const getDate = ({ h, m }: { h: number; m: number }) => {
+	return dayjs().hour(h).minute(m);
 };
-enum TimePeriod {
-	'AM' = '오전',
-	'PM' = '오후'
-}
+const isSameOrBefore = (s: dayjs.Dayjs, t: dayjs.Dayjs) => s.isSame(t) || s.isBefore(t);
+const isSameOrAfter = (s: dayjs.Dayjs, t: dayjs.Dayjs) => s.isSame(t) || s.isAfter(t);
 
-const timeTable: ITimeTable = {
-	AM: [
-		{ h: 8, m: 0 },
-		{ h: 8, m: 20 },
-		{ h: 8, m: 40 },
-		{ h: 9, m: 0 },
-		{ h: 9, m: 20 }
-	],
-	PM: [
-		{ h: 17, m: 30 },
-		{ h: 17, m: 50 },
-		{ h: 18, m: 10 },
-		{ h: 18, m: 30 },
-		{ h: 19, m: 0 },
-		{ h: 19, m: 20 }
-	]
+const getIsInService = (date: dayjs.Dayjs, isFamilyDay: boolean) => {
+	const PM = isFamilyDay ? TIME_PERIOD.FAMILY_DAY_PM : TIME_PERIOD.PM;
+	const amFirstMin = getDate(TIME_TABLE[TIME_PERIOD.AM][0]).add(-1, 'hour');
+	const amLastMin = getDate(TIME_TABLE[TIME_PERIOD.AM].at(-1)!).add(1, 'hour');
+	const pmFirstMin = getDate(TIME_TABLE[PM][0]).add(-1, 'hour');
+	const pmLastMin = getDate(TIME_TABLE[PM].at(-1)!).add(1, 'hour');
+
+	return (
+		(isSameOrAfter(date, amFirstMin) && isSameOrBefore(date, amLastMin)) ||
+		(isSameOrAfter(date, pmFirstMin) && isSameOrBefore(date, pmLastMin))
+	);
 };
 
-const getCurrentTimeTable = (hour: number, min: number) => {
-	const isOperating = (7 < hour && hour < 10) || (16 < hour && hour < 20);
-	if (isOperating) {
-		const selected = timeTable[hour < 10 ? 'AM' : 'PM'];
-		return selected.filter(info => info.h * 60 + info.m >= hour * 60 + min)[0] as ITime;
+const getCurrentTimeTable = (time: dayjs.Dayjs, isFamilyDay: boolean) => {
+	const isInService = getIsInService(time, isFamilyDay);
+
+	if (isInService) {
+		const selected = TIME_TABLE[time.hour() < 10 ? 'AM' : 'PM'];
+		return selected.find(info => isSameOrAfter(getDate({ h: info.h, m: info.m }), time)) as ITime;
 	}
 	return { h: 0, m: 0 };
 };
 
-const getRemainingTime = (info: ITime, currentTime: ITime) => {
+const getRemainingTime = (info: ITime, currentTime: dayjs.Dayjs) => {
 	if (!info.h && !info.m) return '미운행';
-	const { h, m } = currentTime;
-	const totalMin = info.h * 60 + info.m - (h * 60 + m);
+	const totalMin = getDate({ h: info.h, m: info.m }).diff(currentTime, 'minute');
 	const hour = Math.floor(totalMin / 60);
 	const min = totalMin % 60;
 
@@ -54,25 +50,23 @@ const getRemainingTime = (info: ITime, currentTime: ITime) => {
 	return `${hour ? hour + '시' : ''} ${min ? min + '분' : ''} 전`;
 };
 
-const getDepartureInfo = ({ h, m }: ITime, timeStatus: TimePeriodType) => {
-	if (!h && !m) return '운영시간 전';
-	return `${TimePeriod[timeStatus]} ${h}시 ${m ? m + '분' : ''} 출발 예정`;
+const getDepartureInfo = ({ h, m }: ITime, timeStatus: TimeType) => {
+	if (!h && !m) return '운행시간 전';
+	return `${TIME_LABELS[timeStatus].ko} ${h}시 ${m ? m + '분' : ''} 출발 예정`;
 };
 
 export default function ShuttleInfoCard() {
 	const [remainingInfo, setRemainingInfo] = useState('');
-	const [currentTime, setCurrentTime] = useState<ITime>({ h: 0, m: 0 });
-	const [timeStatus, setTimeStatus] = useState<TimePeriodType>('AM');
+	const [nextBusTime, setNextBusTime] = useState<ITime>({ h: 0, m: 0 });
+	const [timeStatus, setTimeStatus] = useState<TimeType>(TIME_PERIOD.AM);
 
 	useEffect(() => {
 		const setTimeInfo = () => {
-			const h = dayjs().hour();
-			const m = dayjs().minute();
-			const timeInfo = getCurrentTimeTable(h, m);
-			console.log(timeInfo);
-			setRemainingInfo(getRemainingTime(timeInfo, { h, m }));
-			setTimeStatus(h < 10 ? 'AM' : 'PM');
-			setCurrentTime(timeInfo);
+			const currentTime = dayjs();
+			const timeInfo = getCurrentTimeTable(currentTime, false);
+			setRemainingInfo(getRemainingTime(timeInfo, currentTime));
+			setTimeStatus(currentTime.hour() < 10 ? 'AM' : 'PM');
+			setNextBusTime(timeInfo);
 		};
 		const id = setInterval(setTimeInfo, 1000);
 		return () => {
@@ -88,11 +82,11 @@ export default function ShuttleInfoCard() {
 					<Icon name="shuttle_bus_m" color="primary.B300" />
 					{remainingInfo}
 				</p>
-				<p className={styles.subTitle}>{getDepartureInfo(currentTime, timeStatus)}</p>
+				<p className={styles.subTitle}>{getDepartureInfo(nextBusTime, timeStatus)}</p>
 			</div>
 			<div className={styles.boxFooter}>
 				<Icon name="location_s" className={styles.icon} />
-				{timeStatus === 'AM' ? '고덕역 → 지식산업센터' : '지식산업센터 → 고덕역'}
+				{DIRECTION[timeStatus]}
 			</div>
 		</div>
 	);
