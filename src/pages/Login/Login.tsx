@@ -30,7 +30,7 @@ export default function Login() {
 	}, [location.search]);
 
 	const handleLogin = () => {
-		navigate('/api/v1/oauth2/authorization/google');
+		window.location.assign('/api/v1/oauth2/authorization/google');
 	};
 
 	return (
