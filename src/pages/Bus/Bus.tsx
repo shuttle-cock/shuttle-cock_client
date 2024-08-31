@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import { BusInfoDisplay, Menubar } from '../../components/villageBus';
-import * as styles from './VillageBus.css';
+import { BusInfoDisplay, Menubar } from '../../components/bus';
+import * as styles from './Bus.css';
 
 const menus: [string, string] = ['지식산업센터', '고덕역'];
 
-export default function VillageBus() {
+export default function Bus() {
 	const [selectedMenu, setSelectedMenu] = useState('지식산업센터');
 
 	const handleMenuSelect = (menu: string) => {

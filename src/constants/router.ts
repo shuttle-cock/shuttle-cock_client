@@ -2,7 +2,7 @@
 export const APP_ROUTES = {
 	ROOT: '/',
 	SHUTTLE_BUS: '/shuttle_bus',
-	VILLAGE_BUS: '/village_bus',
+	BUS: '/bus',
 	COMMUNITY: '/community'
 } as const;
 

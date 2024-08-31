@@ -15,7 +15,7 @@ const postLoginRouter: RouteObject = {
 	element: <PostLoginLayout />,
 	children: [
 		{ path: APP_ROUTES.SHUTTLE_BUS, element: <P.ShuttleBus /> },
-		{ path: APP_ROUTES.VILLAGE_BUS, element: <P.VillageBus /> },
+		{ path: APP_ROUTES.BUS, element: <P.Bus /> },
 		{ path: APP_ROUTES.COMMUNITY, element: <P.Community /> }
 	]
 };
