@@ -62,6 +62,10 @@ export class SessionService {
 		}
 		this.saveState();
 	}
+
+	public clearAll() {
+		this.sessionStore.clear();
+	}
 }
 
 export const SessionInstance = SessionService.getInstance;

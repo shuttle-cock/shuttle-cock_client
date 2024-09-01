@@ -2,5 +2,6 @@ import { style } from '@vanilla-extract/css';
 
 export const container = style({
 	height: '100%',
-	position: 'fixed'
+	position: 'fixed',
+	overflowY: 'auto'
 });
