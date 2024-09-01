@@ -13,7 +13,7 @@ globalStyle('body', {
 	justifyContent: 'center'
 });
 
-globalStyle('#root', {
+globalStyle('#root, #overlay', {
 	width: 'inherit',
 	maxWidth: '440px',
 	background: vars.colors.grayscale.W
