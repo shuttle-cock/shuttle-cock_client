@@ -1,6 +1,6 @@
 import { Navigate, RouterProvider, createBrowserRouter, type RouteObject } from 'react-router-dom';
 
-import { PostLoginLayout, PreLoginLayout } from './components/layout';
+import { PostLoginLayout, PreLoginLayout } from './components/layouts';
 import { APP_ROUTES } from './constants/router';
 import * as P from './pages';
 
