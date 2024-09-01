@@ -1,8 +1,9 @@
-import { useLocation, useNavigate } from 'react-router-dom';
-import * as styles from './Login.css';
-import { APP_ROUTES } from '../../constants/router';
-import logo from '/logo.png';
 import { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+import { saveUserInfo } from '../../services/storageService';
+import * as styles from './Login.css';
+import logo from '/logo.png';
 
 export default function Login() {
 	const navigate = useNavigate();
@@ -18,8 +19,8 @@ export default function Login() {
 
 		if (queryData.code === '200' && queryData.message === 'OK' && queryData.data) {
 			try {
-				queryData.data = JSON.parse(decodeURIComponent(queryData.data));
-				sessionStorage.setItem('userData', JSON.stringify(queryData.data));
+				const userInfo = JSON.parse(decodeURIComponent(queryData.data));
+				saveUserInfo(userInfo);
 				navigate('/shuttle_bus');
 			} catch (error) {
 				console.error('Error parsing data:', error);
