@@ -1,0 +1,16 @@
+{
+	"busRouteAbrv": "강동01",
+	"busRouteId": "124900002",
+	"busRouteNm": "강동01",
+	"corpNm": "신명운수 02-442-5717",
+	"edStationNm": "강변역",
+	"firstBusTm": "20240903053000",
+	"firstLowTm": "",
+	"lastBusTm": "20240903225000",
+	"lastBusYn": "",
+	"lastLowTm": "",
+	"length": "24",
+	"routeType": "2",
+	"stStationNm": "지식산업센터",
+	"term": "11"
+}
