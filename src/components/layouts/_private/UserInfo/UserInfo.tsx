@@ -5,11 +5,11 @@ import { SessionInstance, loadUserInfo } from '../../../../services/storageServi
 import { Button, Text } from '../../../common';
 import * as styles from './UserInfo.css';
 
-const { email, name, picture } = loadUserInfo();
 
 export default function UserInfo() {
 	const navigate = useNavigate();
-
+	const { email, name, picture } = loadUserInfo();
+	
 	const handleLogout = () => {
 		SessionInstance().clearAll();
 		navigate(APP_ROUTES.LOGIN, { replace: true });

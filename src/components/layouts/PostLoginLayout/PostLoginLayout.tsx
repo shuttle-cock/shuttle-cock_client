@@ -6,10 +6,9 @@ import { loadUserInfo } from '../../../services/storageService';
 import { Header, TabMenus } from '../_private';
 import * as styles from './PostLoginLayout.css';
 
-const { userId } = loadUserInfo();
-
 export default function PostLoginLayout() {
 	const navigate = useNavigate();
+	const { userId } = loadUserInfo();
 
 	useEffect(() => {
 		if (!userId) {
