@@ -95,5 +95,10 @@ export const ICON_NAMES = [
 	'time_s',
 	'txt_cancel_s',
 	'view_s',
-	'writing_m'
+	'writing_m',
+	'bus_marker_l',
+	'location_s',
+	'announcement_m',
+	'arrow_forward_right_l',
+	'my_location_l'
 ] as const;
