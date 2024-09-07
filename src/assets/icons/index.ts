@@ -23,3 +23,4 @@ export { default as bus_marker_l } from './bus-marker-l.svg?react';
 export { default as location_s } from './location-s.svg?react';
 export { default as announcement_m } from './announcement-m.svg?react';
 export { default as arrow_forward_right_l } from './arrow-forward-right-l.svg?react';
+export { default as my_location_l } from './my-location-l.svg?react';
