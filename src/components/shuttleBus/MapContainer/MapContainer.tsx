@@ -6,7 +6,7 @@ import * as styles from './MapContainer.css';
 
 interface IShuttleBusProps {
 	updatePosition: LatLngTuple;
-	isError: boolean;
+	isClosed: boolean;
 }
 
 const stationPosition: LatLngTuple = [37.55498, 127.15437];
@@ -52,10 +52,15 @@ const LocationMarker = ({ whenLocated }: { whenLocated: () => void }) => {
 		}
 	});
 
-	return position === null ? null : <Marker position={position!} />;
+	return position === null ? null : (
+		<Marker
+			position={position!}
+			icon={new Icon({ iconUrl: 'src/assets/icons/my-location-l.svg', className: styles.icon })}
+		/>
+	);
 };
 
-export default function ShuttleBus({ updatePosition, isError }: IShuttleBusProps) {
+export default function ShuttleBus({ updatePosition, isClosed }: IShuttleBusProps) {
 	const [position, setPosition] = useState<LatLngTuple>(arrivalPosition);
 	const [, setShowUserLocation] = useState(false);
 
@@ -80,7 +85,7 @@ export default function ShuttleBus({ updatePosition, isError }: IShuttleBusProps
 
 			<Marker
 				position={position}
-				icon={new Icon({ iconUrl: 'src/assets/icons/bus-marker-l.svg', className: styles.bus })}
+				icon={new Icon({ iconUrl: 'src/assets/icons/bus-marker-l.svg', className: styles.icon })}
 				alt="bus-marker-icon"
 			/>
 

@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-export const bus = style({
+export const icon = style({
 	top: '-30px',
 	left: '-40px'
 });

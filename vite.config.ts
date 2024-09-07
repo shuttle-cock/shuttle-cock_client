@@ -6,6 +6,14 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
 	plugins: [react(), svgr(), vanillaExtractPlugin()],
 	server: {
-		port: 3030
+		port: 3030,
+		proxy: {
+			'/api/v1': {
+				target: 'https://bus.rsup.io',
+				changeOrigin: true
+				// configure: (proxy, options) => {
+				// }
+			}
+		}
 	}
 });
