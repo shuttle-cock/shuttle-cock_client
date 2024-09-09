@@ -32,12 +32,12 @@ const getIsInService = (date: dayjs.Dayjs, isFamilyDay: boolean) => {
 
 const getCurrentTimeTable = (time: dayjs.Dayjs, isFamilyDay: boolean) => {
 	const isInService = getIsInService(time, isFamilyDay);
-
+	const noService = { h: 0, m: 0 };
 	if (isInService) {
 		const selected = TIME_TABLE[time.hour() < 10 ? 'AM' : 'PM'];
-		return selected.find(info => isSameOrAfter(getDate({ h: info.h, m: info.m }), time)) as ITime;
+		return selected.find(info => isSameOrAfter(getDate({ h: info.h, m: info.m }), time)) || noService;
 	}
-	return { h: 0, m: 0 };
+	return noService;
 };
 
 const getRemainingTime = (info: ITime, currentTime: dayjs.Dayjs) => {
