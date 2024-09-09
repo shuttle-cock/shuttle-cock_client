@@ -53,10 +53,7 @@ const LocationMarker = ({ whenLocated }: { whenLocated: () => void }) => {
 	});
 
 	return position === null ? null : (
-		<Marker
-			position={position!}
-			icon={new Icon({ iconUrl: 'src/assets/icons/my-location-l.svg', className: styles.icon })}
-		/>
+		<Marker position={position!} icon={new Icon({ iconUrl: '/my-location-l.svg', className: styles.icon })} />
 	);
 };
 
@@ -73,6 +70,7 @@ export default function ShuttleBus({ updatePosition, isClosed }: IShuttleBusProp
 
 	return (
 		<MapContainer
+			tap
 			center={position}
 			zoom={16}
 			scrollWheelZoom
@@ -85,7 +83,7 @@ export default function ShuttleBus({ updatePosition, isClosed }: IShuttleBusProp
 
 			<Marker
 				position={position}
-				icon={new Icon({ iconUrl: 'src/assets/icons/bus-marker-l.svg', className: styles.icon })}
+				icon={new Icon({ iconUrl: '/bus-marker-l.svg', className: styles.icon })}
 				alt="bus-marker-icon"
 			/>
 
