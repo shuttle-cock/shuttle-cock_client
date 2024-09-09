@@ -18,6 +18,8 @@ const parseData = (dataStr: string) => {
 	return data;
 };
 
+// const headers = {};
+
 export const useSSE = <T>({ url, onParsing = parseData }: IEventProps<T>) => {
 	const [status, setStatus] = useState<'connecting' | 'open' | 'closed'>('connecting');
 	const [data, setData] = useState<T>();
@@ -35,7 +37,11 @@ export const useSSE = <T>({ url, onParsing = parseData }: IEventProps<T>) => {
 		};
 
 		const openEventSource = () => {
-			eventSource = new EventSourcePolyfill(`/api/v1/${url}`);
+			eventSource = new EventSourcePolyfill(`/api/v1/${url}`, {
+				heartbeatTimeout: 3600 * 1000 * 4,
+				withCredentials: false
+				// headers
+			});
 
 			eventSource.onopen = () => {
 				setStatus('open');
