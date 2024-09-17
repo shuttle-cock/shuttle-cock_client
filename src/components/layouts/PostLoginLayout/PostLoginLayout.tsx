@@ -11,9 +11,9 @@ export default function PostLoginLayout() {
 	const { userId } = loadUserInfo();
 
 	useEffect(() => {
-		if (!userId) {
-			navigate(APP_ROUTES.LOGIN, { replace: true });
-		}
+		// if (!userId) {
+		// 	navigate(APP_ROUTES.LOGIN, { replace: true });
+		// }
 	}, []);
 
 	return (
