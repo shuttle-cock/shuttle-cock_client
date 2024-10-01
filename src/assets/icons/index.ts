@@ -1,4 +1,6 @@
+export { default as announcement_m } from './announcement-m.svg?react';
 export { default as arrow_down_m } from './arrow-down-m.svg?react';
+export { default as arrow_forward_right_l } from './arrow-forward-right-l.svg?react';
 export { default as arrow_left_l } from './arrow-left-l.svg?react';
 export { default as arrow_up_m } from './arrow-up-m.svg?react';
 export { default as badge_error_s } from './badge-error-s.svg?react';
@@ -20,6 +22,3 @@ export { default as time_s } from './time-s.svg?react';
 export { default as txt_cancel_s } from './txt-cancel-s.svg?react';
 export { default as view_s } from './view-s.svg?react';
 export { default as writing_m } from './writing-m.svg?react';
-export { default as location_s } from './location-s.svg?react';
-export { default as announcement_m } from './announcement-m.svg?react';
-export { default as arrow_forward_right_l } from './arrow-forward-right-l.svg?react';
