@@ -21,7 +21,7 @@ export default function TabMenus() {
 	return (
 		<ul className={styles.container}>
 			{tabMenus.map(({ id, ...props }) => (
-				<TabMenu key={id} isActive={location.pathname === props.to} {...props} />
+				<TabMenu key={id} isActive={location.pathname.startsWith(props.to)} {...props} />
 			))}
 		</ul>
 	);

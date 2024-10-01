@@ -17,7 +17,8 @@ const postLoginRouter: RouteObject = {
 		{ index: true, element: <Navigate to={APP_ROUTES.SHUTTLE_BUS} replace /> },
 		{ path: APP_ROUTES.SHUTTLE_BUS, element: <P.ShuttleBus /> },
 		{ path: APP_ROUTES.VILLAGE_BUS, element: <P.VillageBus /> },
-		{ path: APP_ROUTES.COMMUNITY, element: <P.Community /> }
+		{ path: APP_ROUTES.COMMUNITY, element: <P.Community /> },
+		{ path: APP_ROUTES.COMMUNITY_INFO, element: <P.CommunityInfo /> }
 	]
 };
 
