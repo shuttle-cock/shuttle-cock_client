@@ -54,8 +54,8 @@
 			"@modules/*": ["modules/*"],
 			"@pages/*": ["pages/*"],
 			"@services/*": ["services/*"],
-			"@styles/*": ["styles/*"],
-			"@utils/*": ["utils/*"]
+			"@state/*": ["state/*"],
+			"@styles/*": ["styles/*"]
 		}
 	},
 	"include": ["src"]
