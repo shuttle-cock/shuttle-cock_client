@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import { APP_ROUTES } from '@constants/routerConstants';
 import { saveUserInfo } from '@services/storageService';
 import * as styles from './Login.css';
 import logo from '/logo.png';
@@ -21,7 +22,7 @@ export default function Login() {
 			try {
 				const userInfo = JSON.parse(decodeURIComponent(queryData.data));
 				saveUserInfo(userInfo);
-				navigate('/shuttle_bus');
+				navigate(APP_ROUTES.SHUTTLE_BUS, { replace: true });
 			} catch (error) {
 				console.error('Error parsing data:', error);
 			}
