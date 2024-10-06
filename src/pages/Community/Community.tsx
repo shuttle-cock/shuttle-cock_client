@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import * as styles from './Community.css';
-import Icon from '../../components/common/Icon';
-import PostCard from '../../components/community/PostCard/PostCard';
-import { vars } from '../../styles/theme.css';
-import FloatingButton from '../../components/community/FloatingButton/FloatingButton';
 import { useNavigate } from 'react-router-dom';
+
+import { Icon } from '@components/common';
+import { FloatingButton, PostCard } from '@components/community';
+import { vars } from '@styles/theme.css';
+import * as styles from './Community.css';
 
 const postMockData = [
 	{
@@ -63,8 +63,8 @@ export default function Community() {
 				<div className={styles.noticeDate}>24.08.10</div>
 			</div>
 			<div>
-				{postMockData.map(data => {
-					return <PostCard {...data} onClick={() => onClick(data.postId)} />;
+				{postMockData.map((data, idx) => {
+					return <PostCard key={idx} {...data} onClick={() => onClick(data.postId)} />;
 				})}
 			</div>
 			<FloatingButton

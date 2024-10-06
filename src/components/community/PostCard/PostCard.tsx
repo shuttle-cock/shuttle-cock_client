@@ -1,8 +1,7 @@
-import React from 'react';
+import { Icon } from '@components/common';
+import { vars } from '@styles/theme.css';
+import CategoryTag from '../CategoryTag';
 import * as styles from './PostCard.css';
-import { vars } from '../../../styles/theme.css';
-import Icon from '../../common/Icon';
-import CategoryTag from '../CategoryTag/CategoryTag';
 
 interface IProps {
 	title: string;

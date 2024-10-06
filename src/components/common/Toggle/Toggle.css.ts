@@ -1,5 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { vars } from '../../../styles/theme.css';
+import { vars } from '@styles/theme.css';
 
 export const toggleBase = style({
 	width: '44px',

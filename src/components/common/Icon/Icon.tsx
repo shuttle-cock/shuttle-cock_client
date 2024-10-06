@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react';
 
-import * as icons from '../../../assets/icons';
+import * as icons from '@assets/icons';
 import { iconVariants } from './Icon.css';
 
 type ElementProps = ComponentProps<'svg'>;

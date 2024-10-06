@@ -1,10 +1,10 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '../../styles/theme.css';
+import { vars } from '@styles/theme.css';
 
 export const headerContainer = style({
 	borderBottom: `1px solid ${vars.colors.grayscale.G50}`,
 	justifyContent: 'space-between',
-	display: 'flex',
+	display: 'flex'
 });
 
 export const buttonContainer = style({

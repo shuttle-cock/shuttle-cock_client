@@ -42,8 +42,21 @@
 		"noFallthroughCasesInSwitch": true,
 
 		/* Completeness */
-		"skipLibCheck": true
+		"skipLibCheck": true,
+
+		/* 절대경로 구성 */
+		"baseUrl": "./src",
+		"paths": {
+			"@assets/*": ["assets/*"],
+			"@components/*": ["components/*"],
+			"@constants/*": ["constants/*"],
+			"@hooks/*": ["hooks/*"],
+			"@modules/*": ["modules/*"],
+			"@pages/*": ["pages/*"],
+			"@services/*": ["services/*"],
+			"@state/*": ["state/*"],
+			"@styles/*": ["styles/*"]
+		}
 	},
-	"include": ["src"],
-	"exclude": ["src/**/*.stories.tsx"]
+	"include": ["src"]
 }

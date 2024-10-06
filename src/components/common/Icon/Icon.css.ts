@@ -1,7 +1,7 @@
 import { globalStyle } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
-import { vars } from '../../../styles/theme.css';
+import { vars } from '@styles/theme.css';
 
 Object.entries(vars.colors.primary).forEach(([key, value]) => {
 	globalStyle(`.icon-primary-${key} path`, { fill: value });

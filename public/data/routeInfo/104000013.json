@@ -1,0 +1,16 @@
+{
+	"busRouteAbrv": "3324",
+	"busRouteId": "104000013",
+	"busRouteNm": "3324",
+	"corpNm": "대원여객 02-3436-6366",
+	"edStationNm": "강동역",
+	"firstBusTm": "20240903043000",
+	"firstLowTm": "",
+	"lastBusTm": "20240903233000",
+	"lastBusYn": "",
+	"lastLowTm": "",
+	"length": "22.1",
+	"routeType": "4",
+	"stStationNm": "강동공영차고지",
+	"term": "13"
+}

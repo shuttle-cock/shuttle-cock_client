@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
-import { Icon, Input } from '../../../components/common';
-import * as styles from './CommunityInfo.css';
-import CategoryTag from '../../../components/community/CategoryTag/CategoryTag';
 import TextareaAutosize from 'react-textarea-autosize';
+
+import { Icon } from '@components/common';
+import { CategoryTag } from '@components/community';
+import * as styles from './CommunityInfo.css';
 
 const postMockData = {
 	postId: 1,

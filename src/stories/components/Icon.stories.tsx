@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Icon } from '../../components/common';
+import { Icon } from '@components/common';
 import { COLORS, ICON_NAMES } from '../constants';
 
 const meta: Meta<typeof Icon> = {
@@ -37,19 +37,6 @@ export const IconStory: Story = {
 };
 
 export const Colors: Story = {
-	args: {},
-	render: args => (
-		<>
-			<Icon {...args} name="bus_m" />
-			<Icon {...args} name="comment_m" />
-			<Icon {...args} name="community_m" />
-			<Icon {...args} name="reply_m" />
-			<Icon {...args} name="search_m" />
-		</>
-	)
-};
-
-export const Name: Story = {
 	args: {
 		name: 'bus_m'
 	},
@@ -63,6 +50,19 @@ export const Name: Story = {
 			<Icon {...args} color="secondary.GB600" />
 			<Icon {...args} color="feedback.LR200" />
 			<Icon {...args} color="feedback.LR600" />
+		</>
+	)
+};
+
+export const Name: Story = {
+	args: {},
+	render: args => (
+		<>
+			<Icon {...args} name="bus_m" />
+			<Icon {...args} name="comment_m" />
+			<Icon {...args} name="community_m" />
+			<Icon {...args} name="reply_m" />
+			<Icon {...args} name="search_m" />
 		</>
 	)
 };

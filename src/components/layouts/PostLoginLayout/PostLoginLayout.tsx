@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 
-import { APP_ROUTES } from '../../../constants/router';
-import { loadUserInfo } from '../../../services/storageService';
+import { loadUserInfo } from '@services/storageService';
 import { Header, TabMenus } from '../_private';
 import * as styles from './PostLoginLayout.css';
 

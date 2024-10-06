@@ -1,6 +1,6 @@
-import type { ShuttleSchedule } from '../../../../constants/shuttleSchedules';
-import { Text } from '../../../common';
+import { Text } from '@components/common';
 import * as styles from './ShuttleTimetable.css';
+import type { ShuttleSchedule } from '../MoreMenu/MoreMenu';
 
 type ShuttleTimetableProps = {
 	schedule: ShuttleSchedule;

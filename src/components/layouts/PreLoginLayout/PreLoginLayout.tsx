@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 
-import { APP_ROUTES } from '../../../constants/router';
-import { loadUserInfo } from '../../../services/storageService';
-
+import { APP_ROUTES } from '@constants/routerConstants';
+import { loadUserInfo } from '@services/storageService';
 
 export default function PreLoginLayout() {
 	const navigate = useNavigate();

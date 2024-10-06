@@ -1,14 +1,14 @@
 import { globalFontFace } from '@vanilla-extract/css';
 
-import PretendardExtraLightTTF from '../assets/fonts/Pretendard-ExtraLight.ttf';
-import PretendardExtraLightWOFF from '../assets/fonts/Pretendard-ExtraLight.woff';
-import PretendardExtraLightWOFF2 from '../assets/fonts/Pretendard-ExtraLight.woff2';
-import PretendardLightTTF from '../assets/fonts/Pretendard-Light.ttf';
-import PretendardLightWOFF from '../assets/fonts/Pretendard-Light.woff';
-import PretendardLightWOFF2 from '../assets/fonts/Pretendard-Light.woff2';
-import PretendardRegularTTF from '../assets/fonts/Pretendard-Regular.ttf';
-import PretendardRegularWOFF from '../assets/fonts/Pretendard-Regular.woff';
-import PretendardRegularWOFF2 from '../assets/fonts/Pretendard-Regular.woff2';
+import PretendardBoldTTF from '@assets/fonts/Pretendard-Bold.ttf';
+import PretendardBoldWOFF from '@assets/fonts/Pretendard-Bold.woff';
+import PretendardBoldWOFF2 from '@assets/fonts/Pretendard-Bold.woff2';
+import PretendardExtraLightTTF from '@assets/fonts/Pretendard-ExtraLight.ttf';
+import PretendardExtraLightWOFF from '@assets/fonts/Pretendard-ExtraLight.woff';
+import PretendardExtraLightWOFF2 from '@assets/fonts/Pretendard-ExtraLight.woff2';
+import PretendardLightTTF from '@assets/fonts/Pretendard-Light.ttf';
+import PretendardLightWOFF from '@assets/fonts/Pretendard-Light.woff';
+import PretendardLightWOFF2 from '@assets/fonts/Pretendard-Light.woff2';
 import { fontFamilyList } from './themes';
 
 type Font = {
@@ -37,10 +37,10 @@ const fontFaces: Font[] = [
 		weight: 400
 	},
 	{
-		name: 'Pretendard Variable Regular',
-		ttf: PretendardRegularTTF,
-		woff: PretendardRegularWOFF,
-		woff2: PretendardRegularWOFF2,
+		name: 'Pretendard Variable Bold',
+		ttf: PretendardBoldTTF,
+		woff: PretendardBoldWOFF,
+		woff2: PretendardBoldWOFF2,
 		weight: 700
 	}
 ];

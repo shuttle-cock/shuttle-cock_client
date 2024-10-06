@@ -1,15 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 
-import { APP_ROUTES } from '../../../../constants/router';
-import { SessionInstance, loadUserInfo } from '../../../../services/storageService';
-import { Button, Text } from '../../../common';
+import { Button, Text } from '@components/common';
+import { APP_ROUTES } from '@constants/routerConstants';
+import { SessionInstance, loadUserInfo } from '@services/storageService';
 import * as styles from './UserInfo.css';
-
 
 export default function UserInfo() {
 	const navigate = useNavigate();
 	const { email, name, picture } = loadUserInfo();
-	
+
 	const handleLogout = () => {
 		SessionInstance().clearAll();
 		navigate(APP_ROUTES.LOGIN, { replace: true });
