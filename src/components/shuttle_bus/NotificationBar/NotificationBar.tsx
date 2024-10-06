@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import Icon from '../../common/Icon';
+
+import { Icon } from '@components/common';
 import * as styles from './NotificationBar.css';
 
 interface IPost {

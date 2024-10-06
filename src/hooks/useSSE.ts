@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { EventSourcePolyfill } from 'event-source-polyfill';
+import { useEffect, useState } from 'react';
 
 interface IEventProps<T> {
 	url: string;

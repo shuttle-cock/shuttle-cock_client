@@ -1,4 +1,4 @@
-import { Icon } from '../../common';
+import { Icon } from '@components/common';
 import * as styles from './BusInfoDisplay.css';
 
 type BusInfoDisplayProps = {

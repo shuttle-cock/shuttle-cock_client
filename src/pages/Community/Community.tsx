@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import * as styles from './Community.css';
-import Icon from '../../components/common/Icon';
-import PostCard from '../../components/community/PostCard/PostCard';
-import { vars } from '../../styles/theme.css';
-import FloatingButton from '../../components/community/FloatingButton/FloatingButton';
 import { useNavigate } from 'react-router-dom';
+
+import { Icon } from '@components/common';
+import { FloatingButton, PostCard } from '@components/community';
+import { vars } from '@styles/theme.css';
+import * as styles from './Community.css';
 
 const postMockData = [
 	{

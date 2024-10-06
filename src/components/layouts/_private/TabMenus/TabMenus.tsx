@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { APP_ROUTES } from '../../../../constants/router';
+import { APP_ROUTES } from '@constants/routerConstants';
 import TabMenu from '../TabMenu';
 import * as styles from './TabMenus.css';
 

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { saveUserInfo } from '../../services/storageService';
+import { saveUserInfo } from '@services/storageService';
 import * as styles from './Login.css';
 import logo from '/logo.png';
 

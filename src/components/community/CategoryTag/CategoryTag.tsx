@@ -1,5 +1,4 @@
-import React from 'react';
-import { vars } from '../../../styles/theme.css';
+import { vars } from '@styles/theme.css';
 import * as styles from './CategoryTag.css';
 
 const categoryTextStyle = [

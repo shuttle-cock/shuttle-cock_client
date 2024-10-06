@@ -1,7 +1,5 @@
-import MapContainer from '../../components/shuttleBus/MapContainer/MapContainer';
-import ShuttleInfoCard from '../../components/shuttleBus/ShuttleInfoCard/ShuttleInfoCard';
-import NotificationBar from '../../components/shuttleBus/NotificationBar/NotificationBar';
-import { useSSE } from '../../hooks/sse';
+import { MapContainer, NotificationBar, ShuttleInfoCard } from '@components/shuttle_bus';
+import { useSSE } from '@hooks/useSSE';
 import * as styles from './ShuttleBus.css';
 
 interface IPositionResponse {

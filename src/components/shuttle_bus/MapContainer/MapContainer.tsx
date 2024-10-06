@@ -1,7 +1,10 @@
+import { Icon, LatLngTuple, type LatLngExpression } from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
 import { MapContainer, Marker, Polyline, TileLayer, useMap, useMapEvents } from 'react-leaflet';
-import { type LatLngExpression, Icon, LatLngTuple } from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+
+import BUS_MARKER_L_SVG from '@assets/icons/bus-marker-l.svg';
+import MY_LOCATION_L_SVG from '@assets/icons/my-location-l.svg';
 import * as styles from './MapContainer.css';
 
 interface IShuttleBusProps {
@@ -53,7 +56,7 @@ const LocationMarker = ({ whenLocated }: { whenLocated: () => void }) => {
 	});
 
 	return position === null ? null : (
-		<Marker position={position!} icon={new Icon({ iconUrl: '/my-location-l.svg', className: styles.icon })} />
+		<Marker position={position!} icon={new Icon({ iconUrl: MY_LOCATION_L_SVG, className: styles.icon })} />
 	);
 };
 
@@ -80,15 +83,12 @@ export default function ShuttleBus({ updatePosition, isClosed }: IShuttleBusProp
 			attributionControl={false}
 		>
 			<TileLayer opacity={0.7} url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
 			<Marker
 				position={position}
-				icon={new Icon({ iconUrl: '/bus-marker-l.svg', className: styles.icon })}
+				icon={new Icon({ iconUrl: BUS_MARKER_L_SVG, className: styles.icon })}
 				alt="bus-marker-icon"
 			/>
-
 			<Polyline positions={polylinePositions} color="#3A65FF" weight={8} />
-
 			<LocationMarker whenLocated={() => setShowUserLocation(true)} />
 			<UpdateMapView position={position} />
 		</MapContainer>

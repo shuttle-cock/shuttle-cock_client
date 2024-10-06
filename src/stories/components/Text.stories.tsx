@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Text } from '../../components/common';
+import { Text } from '@components/common';
 import { COLORS } from '../constants';
 
 const meta: Meta<typeof Text> = {

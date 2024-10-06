@@ -2,20 +2,22 @@ export interface ITime {
 	h: number;
 	m: number;
 }
+
+export type TimePeriodType = ValueOf<typeof TIME_PERIOD>;
+export type ITimeTable = {
+	[key in TimePeriodType]: ITime[];
+};
+
+export type TimeType = 'AM' | 'PM';
+export type IDirection = {
+	[key in TimeType]: string;
+};
+
 export const TIME_PERIOD = {
 	AM: 'AM',
 	PM: 'PM',
 	FAMILY_DAY_PM: 'FAMILY_DAY_PM'
 } as const;
-
-export type TimePeriodType = ValueOf<typeof TIME_PERIOD>;
-export type TimeType = 'AM' | 'PM';
-export type ITimeTable = {
-	[key in TimePeriodType]: ITime[];
-};
-export type IDirection = {
-	[key in TimeType]: string;
-};
 
 export const TIME_LABELS = {
 	[TIME_PERIOD.AM]: { en: 'AM', ko: '오전' },
@@ -48,4 +50,7 @@ export const TIME_TABLE: ITimeTable = {
 	]
 } as const;
 
-export const DIRECTION: IDirection = { AM: '고덕역 → 지식산업센터', PM: '지식산업센터 → 고덕역' };
+export const DIRECTION: IDirection = {
+	AM: '고덕역 → 지식산업센터',
+	PM: '지식산업센터 → 고덕역'
+};

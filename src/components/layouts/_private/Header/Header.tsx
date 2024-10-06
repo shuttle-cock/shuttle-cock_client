@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Icon, OverlayView } from '../../../common';
+import { Icon, OverlayView } from '@components/common';
 import MoreMenu from '../MoreMenu';
 import * as styles from './Header.css';
 import logo from '/logo.png';

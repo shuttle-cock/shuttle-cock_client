@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { BusInfoDisplay, Menubar } from '../../components/bus';
+import { BusInfoDisplay, Menubar } from '@components/bus';
 import * as styles from './Bus.css';
 
 const menus: [string, string] = ['지식산업센터', '고덕역'];

@@ -1,4 +1,4 @@
-import { StorageController } from '../../modules/storage';
+import { StorageController } from '@modules/storage';
 
 export class SessionService {
 	private static instance?: SessionService;

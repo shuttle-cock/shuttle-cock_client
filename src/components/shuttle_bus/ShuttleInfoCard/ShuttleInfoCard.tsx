@@ -1,14 +1,15 @@
-import { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
-import Icon from '../../common/Icon';
+import { useEffect, useState } from 'react';
+
+import { Icon } from '@components/common';
 import {
-	type ITime,
-	type TimeType,
+	DIRECTION,
+	TIME_LABELS,
 	TIME_PERIOD,
 	TIME_TABLE,
-	DIRECTION,
-	TIME_LABELS
-} from '../../../constants/schedule';
+	type ITime,
+	type TimeType
+} from '@constants/scheduleConstants';
 import * as styles from './ShuttleInfoCard.css';
 
 const getDate = ({ h, m }: { h: number; m: number }) => {

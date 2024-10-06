@@ -1,5 +1,5 @@
-import { globalStyle, style } from '@vanilla-extract/css';
-import { vars } from '../../../styles/theme.css';
+import { style } from '@vanilla-extract/css';
+import { vars } from '@styles/theme.css';
 
 export const InfoContainer = style({
 	display: 'flex',
@@ -33,7 +33,7 @@ export const profileImg = style({
 });
 
 export const profileCenterField = style({
-    marginLeft: '12px',
+	marginLeft: '12px',
 	flexGrow: '1'
 });
 
@@ -107,7 +107,7 @@ export const commentInputDiv = style({
 
 export const commentInput = style({
 	padding: '12px 16px',
-    width: '100%',
+	width: '100%',
 	fontSize: vars.typography.fontSize.r,
 	lineHeight: vars.typography.lineHeight.r,
 	fontWeight: vars.typography.fontWeight.regular,
