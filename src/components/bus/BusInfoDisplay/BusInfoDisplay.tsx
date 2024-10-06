@@ -16,7 +16,7 @@ export default function BusInfoDisplay({ busLabel, departureLocation, timeLeft }
 				<span className={styles.timeLeftText}>{timeLeft}분 전</span>
 			</div>
 			<div className={styles.departureLocationContent}>
-				<Icon name="location_s" />
+				<Icon name="location_s" color="grayscale.G500" />
 				<span className={styles.departureLocationText}>{departureLocation}에서 출발</span>
 			</div>
 		</div>
