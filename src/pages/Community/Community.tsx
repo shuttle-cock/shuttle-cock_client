@@ -63,8 +63,8 @@ export default function Community() {
 				<div className={styles.noticeDate}>24.08.10</div>
 			</div>
 			<div>
-				{postMockData.map(data => {
-					return <PostCard {...data} onClick={() => onClick(data.postId)} />;
+				{postMockData.map((data, idx) => {
+					return <PostCard key={idx} {...data} onClick={() => onClick(data.postId)} />;
 				})}
 			</div>
 			<FloatingButton
