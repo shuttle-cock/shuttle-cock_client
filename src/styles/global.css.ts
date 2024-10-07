@@ -29,3 +29,14 @@ globalStyle('a', {
 	textDecoration: 'none',
 	color: 'inherit'
 });
+
+globalStyle('::-webkit-scrollbar', {
+	width: '15px'
+});
+
+globalStyle('::-webkit-scrollbar-thumb', {
+	background: vars.colors.grayscale.G100,
+	backgroundClip: 'content-box',
+	borderRadius: '16px',
+	border: '5px solid transparent'
+});
