@@ -61,7 +61,7 @@ const LocationMarker = ({ whenLocated }: { whenLocated: () => void }) => {
 };
 
 export default function ShuttleBus({ updatePosition, isClosed }: IShuttleBusProps) {
-	const [position, setPosition] = useState<LatLngTuple>(arrivalPosition);
+	const [position, setPosition] = useState<LatLngTuple>(stationPosition);
 	const [, setShowUserLocation] = useState(false);
 
 	useEffect(() => {
