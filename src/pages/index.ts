@@ -1,5 +1,5 @@
-export { default as Bus } from './Bus';
-export { Community, CommunityInfo } from './Community';
-export { default as Error } from './Error';
-export { default as Login } from './Login';
+export { default as Bus } from './bus';
+export { Community, CommunityInfo } from './community';
+export { default as Error } from './error';
+export { default as Login } from './login';
 export { default as ShuttleBus } from './shuttle_bus';
